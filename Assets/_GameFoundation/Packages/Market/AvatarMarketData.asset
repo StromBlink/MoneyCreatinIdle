@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b88a3689c423a4fbc9f6c346134c54, type: 3}
+  m_Name: AvatarMarketData
+  m_EditorClassIdentifier: 
+  marketDataName: Avatar
+  marketItemDataes:
+  - id: 0
+    isUnlock: 1
+    itemName: 0
+    costType: 0
+    cost: 0
+    sprite: {fileID: 21300000, guid: 83e5393249eb3469aa9f60512ba6edd4, type: 3}
+  - id: 1
+    isUnlock: 0
+    itemName: 1
+    costType: 1
+    cost: 100
+    sprite: {fileID: 21300000, guid: 3289f8a53adbf49e499c2fbab614344b, type: 3}
+  - id: 2
+    isUnlock: 0
+    itemName: 2
+    costType: 1
+    cost: 200
+    sprite: {fileID: 21300000, guid: da0e4bb8481b44602adcf9993587cdf5, type: 3}
+  - id: 3
+    isUnlock: 0
+    itemName: 3
+    costType: 1
+    cost: 300
+    sprite: {fileID: 21300000, guid: efbc56be61e874d4d9226c41a9525447, type: 3}
+  - id: 4
+    isUnlock: 0
+    itemName: 4
+    costType: 1
+    cost: 400
+    sprite: {fileID: 21300000, guid: a00224e887fe64d2398a8b6255a5a131, type: 3}
+  - id: 5
+    isUnlock: 0
+    itemName: 5
+    costType: 1
+    cost: 500
+    sprite: {fileID: 21300000, guid: 525d20051d2a241b38c19ea9063308ae, type: 3}
+  - id: 6
+    isUnlock: 0
+    itemName: 6
+    costType: 1
+    cost: 600
+    sprite: {fileID: 21300000, guid: 8b9fc201929474b778b2a448e4e893db, type: 3}
+  - id: 7
+    isUnlock: 0
+    itemName: 7
+    costType: 3
+    cost: 700
+    sprite: {fileID: 21300000, guid: 573b25031f7e843bcb01e1f93c60e1ed, type: 3}
