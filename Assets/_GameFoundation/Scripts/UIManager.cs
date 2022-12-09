@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace StatueGames.Foundation
+namespace KeyboredGames
 {
     public class UIManager : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace StatueGames.Foundation
         public Canvas rewardCanvas;
         public Canvas market;
         public TMP_Dropdown skinSelect;
-        public MarketManager marketManager;
+        
         
         private Canvas currentCanvas;
         

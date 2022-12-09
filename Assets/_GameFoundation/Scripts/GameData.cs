@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace StatueGames
+namespace KeyboredGames
 {
 
     public class GameData

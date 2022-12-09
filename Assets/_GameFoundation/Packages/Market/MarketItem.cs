@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace StatueGames.Foundation
+namespace KeyboredGames
 {
 
     public class MarketItem : MonoBehaviour

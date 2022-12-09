@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-namespace StatueGames
+namespace KeyboredGames
 {
 
     public class EventManager : MonoBehaviour

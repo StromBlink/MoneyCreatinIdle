@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace StatueGames
-{
+namespace KeyboredGames
+{ 
 
-	public class PlayerPrefs2
+	public static class PlayerPrefs2
 	{
 		public static void SetBool(string key, bool state)
 		{

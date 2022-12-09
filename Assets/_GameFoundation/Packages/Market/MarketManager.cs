@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace StatueGames.Foundation
+namespace KeyboredGames
 {
 
     public class MarketManager : MonoBehaviour
