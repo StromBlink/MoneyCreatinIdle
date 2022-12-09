@@ -13,29 +13,31 @@ public class CoinController : MonoBehaviour
     [SerializeField] private Material coinSecondStateMaterial;
     [SerializeField] private Material coinThirdStadeMaterial;
 
-    [Header("Transforms")] 
+    [Header("Transforms")]
     [SerializeField] private Transform[] coinBases;
 
     private GameObject _coin;
-    
+
     public int coinIndex = 1;
 
-    private float _time;
+    public float _time;
     private void Update()
     {
         _time += 1 * Time.deltaTime;
-        
-        if (_time >= 3 && GameManager.Instance.state == State.Gameplay);
+        if (_time >= 3 && GameManager.Instance.state == State.Gameplay)
         {
-            GetCoin();
             _time = 0;
+            GetCoin();
+
         }
+
+
     }
 
     public void GetCoin()
     {
         _coin = PoolManager.Instance.GetPoolObject(0);
-        
+
         for (int i = 0; i < coinIndex; i++)
         {
             _coin.transform.position = coinBases[coinIndex % coinBases.Length].position;
