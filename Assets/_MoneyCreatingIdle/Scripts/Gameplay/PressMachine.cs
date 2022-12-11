@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 
 namespace KeyboredGames
 {
-    enum WhichCoin { Coin, Coin_2 }
+    public enum WhichCoin { CylinderCoin, Coin }
     public class PressMachine : MonoBehaviour
     {
         float _countDown = 0;
@@ -17,19 +17,29 @@ namespace KeyboredGames
         [SerializeField] private float conveyorSpeed;
         [SerializeField] private Animator conveyorAnimator;
 
-
+        public WhichCoin whichCoin;
         private Vector3 _basePosition;
         private Vector3 _target;
-        private bool _isPress;
+
+        private string _tag; 
 
         private AnimationController _animationController;
         private void Start()
         {
             _animationController = AnimationController.Instance;
-            PressAnimation(press, 1f, 0.3f, pressSteam);
             _basePosition = press.transform.position;
             _target = new Vector3(press.transform.position.x, press.transform.position.y - 0.1f,
                 press.transform.position.z);
+
+            if (whichCoin == WhichCoin.CylinderCoin)
+            {
+                _tag = "Player";
+            }
+            if (whichCoin == WhichCoin.Coin)
+            {
+                _tag  = "Coin";
+            }
+            
         }
 
         private void Update()
@@ -37,13 +47,14 @@ namespace KeyboredGames
             RaycastHit hit;
             if (Physics.Raycast(press.position, Vector3.down, out hit, 25f))
             {
-                if (hit.collider.gameObject.CompareTag("Coin") && !_isPress)
+                if (hit.collider.gameObject.CompareTag(_tag))
                 {
-                    _isPress = true;
                     PressAnimation(press, 1f / _animationController.animationSpeed, 0.3f / _animationController.animationSpeed, pressSteam);
                     hit.collider.gameObject.tag = "Player";
                 }
             }
+
+            conveyorAnimator.speed = conveyorSpeed;
 
         }
         void OnDrawGizmosSelected()
@@ -61,7 +72,6 @@ namespace KeyboredGames
                 press.transform.DOMove(_basePosition, time).SetDelay(delay).OnStart(() =>
                 {
                     conveyorSpeed = _animationController.animationSpeed;
-                    _isPress = false;
                 });
             });
         }
