@@ -7,7 +7,8 @@ namespace KeyboredGames
 {
     public class PoolManager : MonoBehaviour
     {
-        [Serializable] public struct Pool
+        [Serializable]
+        public struct Pool
         {
             public Queue<GameObject> PooledObjects;
             public GameObject objectPrefab;
@@ -20,7 +21,7 @@ namespace KeyboredGames
         private void Awake()
         {
             Instance = this;
-            
+
             for (int i = 0; i < pools.Length; i++)
             {
                 pools[i].PooledObjects = new Queue<GameObject>();

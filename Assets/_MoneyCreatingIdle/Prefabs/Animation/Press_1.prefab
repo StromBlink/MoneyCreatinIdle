@@ -277,6 +277,7 @@ MonoBehaviour:
   pressSteam: {fileID: 4841309001356992493}
   conveyorSpeed: 0
   conveyorAnimator: {fileID: 7935708022230875686}
+  whichCoin: 0
 --- !u!4 &3826475764820192549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 425578308345285693, guid: 8d49cbf17e2a02b4cbe84aa68f9e870d, type: 3}
@@ -596,7 +597,7 @@ BoxCollider:
   m_GameObject: {fileID: 8357709176064392038}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.9500008, y: 0.18000062, z: 0.5400005}
   m_Center: {x: -0.011742358, y: 0.14507619, z: 2.7339797e-12}

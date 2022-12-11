@@ -14,32 +14,33 @@ namespace KeyboredGames
         float _countDown = 0;
         [SerializeField] Transform press;
         [SerializeField] ParticleSystem pressSteam;
-        [SerializeField] private float conveyorSpeed;
+        public float conveyorSpeed;
         [SerializeField] private Animator conveyorAnimator;
 
         public WhichCoin whichCoin;
         private Vector3 _basePosition;
         private Vector3 _target;
 
-        private string _tag; 
+        private string _tag;
 
         private AnimationController _animationController;
         private void Start()
         {
             _animationController = AnimationController.Instance;
             _basePosition = press.transform.position;
+            conveyorSpeed = _animationController.animationSpeed;
             _target = new Vector3(press.transform.position.x, press.transform.position.y - 0.1f,
                 press.transform.position.z);
 
             if (whichCoin == WhichCoin.CylinderCoin)
             {
-                _tag = "Player";
+                _tag = "CylinderCoin";
             }
             if (whichCoin == WhichCoin.Coin)
             {
-                _tag  = "Coin";
+                _tag = "Coin";
             }
-            
+
         }
 
         private void Update()
@@ -50,7 +51,8 @@ namespace KeyboredGames
                 if (hit.collider.gameObject.CompareTag(_tag))
                 {
                     PressAnimation(press, 1f / _animationController.animationSpeed, 0.3f / _animationController.animationSpeed, pressSteam);
-                    hit.collider.gameObject.tag = "Player";
+                    hit.collider.gameObject.tag = "Coin";
+
                 }
             }
 
@@ -72,6 +74,7 @@ namespace KeyboredGames
                 press.transform.DOMove(_basePosition, time).SetDelay(delay).OnStart(() =>
                 {
                     conveyorSpeed = _animationController.animationSpeed;
+
                 });
             });
         }
