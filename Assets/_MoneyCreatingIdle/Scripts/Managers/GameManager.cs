@@ -30,7 +30,7 @@ namespace KeyboredGames
             state = State.UI;
             EventManager.Instance.levelStart += StateSelector;
         }
-
+    
         public void StateSelector()
         {
             switch (state)
