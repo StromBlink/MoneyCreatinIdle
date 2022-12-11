@@ -17,6 +17,7 @@ namespace KeyboredGames
         private Transform[] coinBases;
 
         private GameObject _coin;
+        private GameObject _coinBackground;
 
         public int coinIndex = 1;
 
@@ -37,11 +38,12 @@ namespace KeyboredGames
         public void GetCoin()
         {
             _coin = PoolManager.Instance.GetPoolObject(0);
+            _coinBackground = PoolManager.Instance.GetPoolObject(0);
 
             for (int i = 0; i < coinIndex; i++)
             {
                 _coin.transform.position = coinBases[coinIndex % coinBases.Length].position;
-                _coin.transform.position = coinBases[coinIndex % coinBases.Length].position - Vector3.back * 0.106f;
+                _coinBackground.transform.position = _coin.transform.position - Vector3.back * 0.1f;
             }
         }
     }

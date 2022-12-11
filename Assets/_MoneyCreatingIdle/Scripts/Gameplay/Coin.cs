@@ -10,11 +10,7 @@ namespace KeyboredGames
     {
         public TrailRenderer trailRenderer;
         public Rigidbody rigidbody;
-
-        void Start()
-        {
-
-        }
+        
         
         void Update()
         {

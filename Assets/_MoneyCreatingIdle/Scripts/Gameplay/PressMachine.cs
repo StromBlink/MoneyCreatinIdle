@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,7 +15,8 @@ namespace KeyboredGames
         [SerializeField] ParticleSystem pressSteam;
         [SerializeField] private float conveyorSpeed;
         [SerializeField] private Animator conveyorAnimator;
-
+        
+        
         private Vector3 _basePosition;
         private Vector3 _target;
 
@@ -30,13 +32,19 @@ namespace KeyboredGames
 
         private void Update()
         {
-            if (_countDown > 2.3f)
+            RaycastHit hit;
+            Physics.Raycast(press.position, Vector3.down, out hit, 25f);
+            Debug.Log(hit.collider.gameObject.name);
+            OnDrawGizmosSelected();
+            if (hit.collider.gameObject.CompareTag("Coin"))
             {
                 PressAnimation(press, 1f / _animationController.animationSpeed, 0.3f / _animationController.animationSpeed, pressSteam);
-                _countDown = 0;
             }
-            _countDown += Time.deltaTime * _animationController.animationSpeed;
-            conveyorAnimator.speed = conveyorSpeed;
+        }
+        void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(press.position, Vector3.down);
         }
 
         public void PressAnimation(Transform press, float time, float delay, ParticleSystem pressSteam)
