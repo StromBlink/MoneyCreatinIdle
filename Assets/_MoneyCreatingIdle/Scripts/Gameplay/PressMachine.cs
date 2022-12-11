@@ -33,13 +33,14 @@ namespace KeyboredGames
         private void Update()
         {
             RaycastHit hit;
-            Physics.Raycast(press.position, Vector3.down, out hit, 25f);
-            Debug.Log(hit.collider.gameObject.name);
-            OnDrawGizmosSelected();
-            if (hit.collider.gameObject.CompareTag("Coin"))
+            if (Physics.Raycast(press.position, Vector3.down, out hit, 25f))
             {
-                PressAnimation(press, 1f / _animationController.animationSpeed, 0.3f / _animationController.animationSpeed, pressSteam);
+                if (hit.collider.gameObject.CompareTag("Coin"))
+                {
+                    PressAnimation(press, 1f / _animationController.animationSpeed, 0.3f / _animationController.animationSpeed, pressSteam);
+                }
             }
+
         }
         void OnDrawGizmosSelected()
         {
