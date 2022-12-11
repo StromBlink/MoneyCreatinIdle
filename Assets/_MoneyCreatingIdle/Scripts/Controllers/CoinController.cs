@@ -16,6 +16,8 @@ namespace KeyboredGames
         [Header("Transforms")]
         [SerializeField]
         private Transform[] coinBases;
+
+        [SerializeField] private GameObject blocks;
         [SerializeField] Transform invertory;
         private GameObject _coin;
         private GameObject _coinBackground;
@@ -28,25 +30,21 @@ namespace KeyboredGames
         private void Update()
         {
             time += 1 * Time.deltaTime;
-            if (time >= timer && GameManager.Instance.state == State.Gameplay)
-            {
-                time = 0;
-                GetCoin();
-
-            }
         }
 
         public void GetCoin()
         {
             _coin = PoolManager.Instance.GetPoolObject(0);
             _coinBackground = PoolManager.Instance.GetPoolObject(0);
+            _coin.transform.position = coinBases[coinIndex].position;
+            _coin.transform.SetParent(invertory);
+        }
 
-            for (int i = 0; i < coinIndex; i++)
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Knife"))
             {
-                _coin.transform.position = coinBases[coinIndex % coinBases.Length].position;
-                _coin.transform.SetParent(invertory);
-                _coinBackground.transform.position = _coin.transform.position - Vector3.back * 0.1f;
-                _coinBackground.transform.SetParent(invertory);
+                GetCoin();
             }
         }
     }

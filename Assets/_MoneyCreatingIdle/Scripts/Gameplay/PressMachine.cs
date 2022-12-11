@@ -51,9 +51,10 @@ namespace KeyboredGames
             {
                 if (hit.collider.gameObject.CompareTag(_tag) && ID != hit.collider.gameObject.GetInstanceID())
                 {
-                    PressAnimation(press, 1f / _animationController.animationSpeed * 2, 0.3f / _animationController.animationSpeed, pressSteam);
+                    PressAnimation(press, 1f / (_animationController.animationSpeed * 4), 0.3f / _animationController.animationSpeed, pressSteam);
                     hit.collider.gameObject.tag = "Coin";
                     ID = hit.collider.gameObject.GetInstanceID();
+                    Debug.Log("Pressssssss" + this.gameObject.name);
                 }
             }
 
@@ -63,7 +64,7 @@ namespace KeyboredGames
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(press.position, Vector3.down);
+            Gizmos.DrawLine(press.position, press.position - Vector3.up);
         }
 
         public void PressAnimation(Transform press, float time, float delay, ParticleSystem pressSteam)

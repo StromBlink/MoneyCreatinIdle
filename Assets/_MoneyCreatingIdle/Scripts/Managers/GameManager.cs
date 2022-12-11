@@ -27,7 +27,7 @@ namespace KeyboredGames
 
         private void Start()
         {
-            state = State.UI;
+            state = State.Gameplay;
             EventManager.Instance.levelStart += StateSelector;
         }
     
