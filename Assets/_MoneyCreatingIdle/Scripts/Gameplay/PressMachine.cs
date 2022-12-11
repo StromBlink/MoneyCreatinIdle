@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 
 namespace KeyboredGames
 {
+    enum WhichCoin { Coin, Coin_2 }
     public class PressMachine : MonoBehaviour
     {
         float _countDown = 0;
@@ -15,10 +16,11 @@ namespace KeyboredGames
         [SerializeField] ParticleSystem pressSteam;
         [SerializeField] private float conveyorSpeed;
         [SerializeField] private Animator conveyorAnimator;
-        
-        
+
+
         private Vector3 _basePosition;
         private Vector3 _target;
+        private bool _isPress;
 
         private AnimationController _animationController;
         private void Start()
@@ -35,9 +37,11 @@ namespace KeyboredGames
             RaycastHit hit;
             if (Physics.Raycast(press.position, Vector3.down, out hit, 25f))
             {
-                if (hit.collider.gameObject.CompareTag("Coin"))
+                if (hit.collider.gameObject.CompareTag("Coin") && !_isPress)
                 {
+                    _isPress = true;
                     PressAnimation(press, 1f / _animationController.animationSpeed, 0.3f / _animationController.animationSpeed, pressSteam);
+                    hit.collider.gameObject.tag = "Player";
                 }
             }
 
@@ -50,15 +54,16 @@ namespace KeyboredGames
 
         public void PressAnimation(Transform press, float time, float delay, ParticleSystem pressSteam)
         {
-                press.transform.DOMove(_target, time).OnStart(() => { conveyorSpeed = 0; })
-                .OnComplete(() =>
+            press.transform.DOMove(_target, time).OnStart(() => { conveyorSpeed = 0; })
+            .OnComplete(() =>
+            {
+                pressSteam.Play();
+                press.transform.DOMove(_basePosition, time).SetDelay(delay).OnStart(() =>
                 {
-                    pressSteam.Play();
-                    press.transform.DOMove(_basePosition, time).SetDelay(delay).OnStart(() =>
-                    {
-                        conveyorSpeed = _animationController.animationSpeed;
-                    });
+                    conveyorSpeed = _animationController.animationSpeed;
+                    _isPress = false;
                 });
+            });
         }
     }
 }
