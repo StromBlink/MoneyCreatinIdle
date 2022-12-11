@@ -22,6 +22,7 @@ namespace KeyboredGames
         private Vector3 _target;
 
         private string _tag;
+        int ID;
 
         private AnimationController _animationController;
         private void Start()
@@ -48,11 +49,11 @@ namespace KeyboredGames
             RaycastHit hit;
             if (Physics.Raycast(press.position, Vector3.down, out hit, 25f))
             {
-                if (hit.collider.gameObject.CompareTag(_tag))
+                if (hit.collider.gameObject.CompareTag(_tag) && ID != hit.collider.gameObject.GetInstanceID())
                 {
-                    PressAnimation(press, 1f / _animationController.animationSpeed, 0.3f / _animationController.animationSpeed, pressSteam);
+                    PressAnimation(press, 1f / _animationController.animationSpeed * 2, 0.3f / _animationController.animationSpeed, pressSteam);
                     hit.collider.gameObject.tag = "Coin";
-
+                    ID = hit.collider.gameObject.GetInstanceID();
                 }
             }
 

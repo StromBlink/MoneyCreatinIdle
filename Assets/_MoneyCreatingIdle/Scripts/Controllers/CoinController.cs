@@ -9,13 +9,14 @@ namespace KeyboredGames
 {
     public class CoinController : MonoBehaviour
     {
-        [Header("Materials")] [SerializeField] private Material coinFirstStateMaterial;
+        [Header("Materials")][SerializeField] private Material coinFirstStateMaterial;
         [SerializeField] private Material coinSecondStateMaterial;
         [SerializeField] private Material coinThirdStadeMaterial;
 
-        [Header("Transforms")] [SerializeField]
+        [Header("Transforms")]
+        [SerializeField]
         private Transform[] coinBases;
-
+        [SerializeField] Transform invertory;
         private GameObject _coin;
         private GameObject _coinBackground;
 
@@ -43,7 +44,9 @@ namespace KeyboredGames
             for (int i = 0; i < coinIndex; i++)
             {
                 _coin.transform.position = coinBases[coinIndex % coinBases.Length].position;
+                _coin.transform.SetParent(invertory);
                 _coinBackground.transform.position = _coin.transform.position - Vector3.back * 0.1f;
+                _coinBackground.transform.SetParent(invertory);
             }
         }
     }

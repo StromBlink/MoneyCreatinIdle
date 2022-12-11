@@ -19,15 +19,25 @@ namespace KeyboredGames
         public float coinSpeed;
         void OnEnable()
         {
+            Vector3 fallingPoint = new Vector3(0.0132756457f, 0.250106752f, -7.21832323f);
+            animator.enabled = false;
             animator.SetBool("Start", false);
             isConveyorSwtich = false;
-            Vector3 fallingPoint = new Vector3(0.0132756457f, 0.250106752f, -7.21832323f);
-            transform.DOMove(fallingPoint, 10f).SetEase(Ease.Linear).OnComplete(() => { animator.SetBool("Start", true); });
-            //Domove calismiyor sadece 10 saniye sonra Oncomplete calisiyor
 
 
+            transform.DOMove(fallingPoint, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
+            {
+                transform.DORotate(new Vector3(0, 0, 90), 0.3f);
+                transform.DOJump(fallingPoint + Vector3.up * 0.05f, 0.1f, 1, 0.3f).SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    animator.enabled = true;
+                    animator.SetBool("Start", true);
+                });
+            });
+            transform.DORotate(new Vector3(0, 0, 270), 0.5f);
             tag = "CylinderCoin";
         }
+
         void Update()
         {
             if (isConveyorSwtich) { pressMachine = pressMachine_2; }
