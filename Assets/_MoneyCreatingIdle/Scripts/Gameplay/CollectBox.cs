@@ -1,18 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class CollectBox : MonoBehaviour
+using DG.Tweening;
+namespace KeyboredGames
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public class CollectBox : MonoBehaviour
     {
-        
+        List<Rigidbody> rigidbodies_Coins = new List<Rigidbody>();
+        List<Transform> transforms_Coins = new List<Transform>();
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Coin"))
+            {
+                other.GetComponent<Animator>().enabled = false;
+                rigidbodies_Coins.Add(other.GetComponent<Rigidbody>());
+                transforms_Coins.Add(other.GetComponent<Transform>());
+                if (rigidbodies_Coins.Count > 5)
+                {
+                    GoBox();
+
+                }
+
+            }
+        }
+        void InBox()
+        {
+            foreach (var item in rigidbodies_Coins)
+            {
+                item.isKinematic = true;
+
+            }
+        }
+        void GoBox()
+        {
+            /*  InBox(); */
+            transform.DOMove(transform.position + Vector3.back, 1f);
+            /*  foreach (var item in transforms_Coins)
+             {
+                 item.DOMove(transform.position + Vector3.back, 1f);
+
+             } */
+        }
+
     }
 }

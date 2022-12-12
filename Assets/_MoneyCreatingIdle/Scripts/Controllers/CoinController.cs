@@ -12,31 +12,17 @@ namespace KeyboredGames
         [Header("Materials")][SerializeField] private Material coinFirstStateMaterial;
         [SerializeField] private Material coinSecondStateMaterial;
         [SerializeField] private Material coinThirdStadeMaterial;
-
+        [SerializeField] Animator animator;
         [Header("Transforms")]
         [SerializeField]
-        private Transform[] coinBases;
-
-        [SerializeField] private GameObject blocks;
+        private Transform coinBasePoint;
         [SerializeField] Transform invertory;
         private GameObject _coin;
-        private GameObject _coinBackground;
-
-        public int coinIndex = 1;
-
-        public float time;
-        public float timer;
-
-        private void Update()
-        {
-            time += 1 * Time.deltaTime;
-        }
-
         public void GetCoin()
         {
             _coin = PoolManager.Instance.GetPoolObject(0);
-            _coinBackground = PoolManager.Instance.GetPoolObject(0);
-            _coin.transform.position = coinBases[coinIndex].position;
+            /*  _coinBackground = PoolManager.Instance.GetPoolObject(0); */
+            _coin.transform.position = coinBasePoint.position;
             _coin.transform.SetParent(invertory);
         }
 
@@ -45,6 +31,7 @@ namespace KeyboredGames
             if (other.gameObject.CompareTag("Knife"))
             {
                 GetCoin();
+                animator.SetTrigger("Kesildi");
             }
         }
     }

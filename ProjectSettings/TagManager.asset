@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - CylinderCoin
+  - Knife
   layers:
   - Default
   - TransparentFX
