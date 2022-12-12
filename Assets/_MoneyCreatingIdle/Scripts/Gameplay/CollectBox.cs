@@ -19,7 +19,6 @@ namespace KeyboredGames
                 if (rigidbodies_Coins.Count > 5)
                 {
                     GoBox();
-
                 }
 
             }
@@ -34,13 +33,13 @@ namespace KeyboredGames
         }
         void GoBox()
         {
-            /*  InBox(); */
+            InBox();
             transform.DOMove(transform.position + Vector3.back, 1f);
-            /*  foreach (var item in transforms_Coins)
-             {
+            foreach (var item in transforms_Coins)
+            {
                  item.DOMove(transform.position + Vector3.back, 1f);
-
-             } */
+                 PoolManager.Instance.SetPoolObject(item.gameObject,0);
+            } 
         }
 
     }
