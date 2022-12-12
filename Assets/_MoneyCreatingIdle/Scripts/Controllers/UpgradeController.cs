@@ -12,10 +12,15 @@ namespace KeyboredGames
     {
         private void Update()
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Time.timeScale = 1.5f;
+            }
             if (Input.GetMouseButtonUp(0))
             {
                 MyUiManager.instance.coin++;
                 GameData.Coin++;
+                Time.timeScale = 1;
             }
         }
     }

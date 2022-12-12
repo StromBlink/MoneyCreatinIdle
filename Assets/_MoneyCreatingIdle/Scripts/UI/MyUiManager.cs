@@ -78,6 +78,7 @@ public class MyUiManager : MonoBehaviour
             GameData.Coin -= countCoin;
             countCoin++;
             GameData.SavePlayerSpec2++;
+            
         }
     }
 
@@ -108,6 +109,11 @@ public class MyUiManager : MonoBehaviour
     public void Sound()
     {
         AudioManager.Instance.effectSource.volume = audioSlider.value * 10;
+    }
+
+    public void Mute()
+    {
+        AudioManager.Instance.effectSource.volume = 0;
     }
 
     public void Quit()
