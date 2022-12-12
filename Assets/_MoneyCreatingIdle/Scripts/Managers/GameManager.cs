@@ -11,8 +11,7 @@ namespace KeyboredGames
     public enum State
     {
         UI,
-        Gameplay,
-        Collect
+        Gameplay
     }
 
     public class GameManager : MonoBehaviour
@@ -41,9 +40,6 @@ namespace KeyboredGames
                 case State.Gameplay:
                     GameplayState();
                     break;
-                case State.Collect:
-                    CollectState();
-                    break;
             }
         }
 
@@ -57,10 +53,7 @@ namespace KeyboredGames
             //
         }
 
-        public void CollectState()
-        {
-            //
-        }
+        
 
     }
 }

@@ -21,13 +21,17 @@ namespace KeyboredGames
             set { PlayerPrefs.SetInt("BestTurn", value); }
         }
 
-
-
-
         public static float PlayerExp
         {
             get { return PlayerPrefs.GetFloat("PlayerExp", 0); }
             set { PlayerPrefs.SetFloat("PlayerExp", value); }
+        }
+
+
+        public static float Slider
+        {
+            get { return PlayerPrefs.GetFloat("Slider", 0); }
+            set { PlayerPrefs.SetFloat("Slider", value); }
         }
 
 

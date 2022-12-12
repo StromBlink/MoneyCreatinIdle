@@ -17,7 +17,6 @@ namespace KeyboredGames
         public TrailRenderer trailRenderer;
         public Rigidbody rgdbody;
 
-        public float coinSpeed;
         void OnEnable()
         {
             Vector3 fallingPoint = new Vector3(0.0132756457f, 0.250106752f, -7.21832323f);
@@ -36,7 +35,6 @@ namespace KeyboredGames
                 });
             });
             transform.DORotate(new Vector3(0, 0, 270), 0.5f);
-            tag = "CylinderCoin";
         }
 
         void Update()

@@ -7,7 +7,7 @@ namespace KeyboredGames
 {
     public class PoolManager : MonoBehaviour
     {
-        [Serializable]
+        
         public struct Pool
         {
             public Queue<GameObject> PooledObjects;
