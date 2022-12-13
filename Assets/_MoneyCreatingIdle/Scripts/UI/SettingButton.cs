@@ -10,6 +10,7 @@ namespace KeyboredGames
         [SerializeField] AudioListener audioListener;
         bool isSound = true;
         bool isVib = true;
+        
 
         public void Start()
         {

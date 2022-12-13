@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using DG.Tweening;
 using KeyboredGames;
 using TMPro;
@@ -22,10 +23,12 @@ namespace KeyboredGames
         public VibrationState vibrationState;
         [Header("Texts")] public TMP_Text cointext;
         public TMP_Text incomeButtonCoinText;
+        public TMP_Text incomeValueButtonCoinText;
         public TMP_Text countButtonCoinText;
         public TMP_Text speedButtonCoinText;
 
-        [Header("Buttons")] public Button incomeButton;
+        [Header("Buttons")] 
+        public Button incomeButton;
         public Button countButton;
         public Button speedButton;
 
@@ -45,6 +48,10 @@ namespace KeyboredGames
         private int _incomeButtonValue;
         private int _countCoinValue;
         private int _speedCoinValue;
+
+        [Header("Plates")] 
+        public GameObject[] plates;
+        public int platesCount;
         
 
         private void Awake()
@@ -55,16 +62,23 @@ namespace KeyboredGames
             _incomeButtonValue = GameData.BgmCount;
             _countCoinValue = GameData.SavePlayerSpec2;
             _speedCoinValue = GameData.SavePlayerSpec3;
+            platesCount = GameData.Gem;
+            
+            OpenPlates();
             /*  audioSlider.value = GameData.Slider; */
         }
 
         private void Update()
         {
-            cointext.SetText(coin.ToString());
-            incomeButtonCoinText.SetText(_incomeButtonValue.ToString());
-            countButtonCoinText.SetText(_countCoinValue.ToString());
-            speedButtonCoinText.SetText(_speedCoinValue.ToString());
+            cointext.SetText("$" + coin.ToString());
+            incomeButtonCoinText.SetText("$" +_incomeButtonValue.ToString());
+            incomeValueButtonCoinText.SetText("$" +incomeCoin.ToString());
+            countButtonCoinText.SetText("$" +_countCoinValue.ToString());
+            speedButtonCoinText.SetText("$" +_speedCoinValue.ToString());
             /*  GameData.Slider = audioSlider.value; */
+            
+            
+            
         }
 
         public void Income()
@@ -77,8 +91,6 @@ namespace KeyboredGames
                 GameData.BgmCount += 10;
                 incomeCoin++;
                 GameData.SavePlayerSpec1++;
-
-                ButtonEffekt(incomeButton);
             }
         }
 
@@ -90,8 +102,9 @@ namespace KeyboredGames
                 GameData.Coin -= _countCoinValue;
                 _countCoinValue += 10;
                 GameData.SavePlayerSpec2 += 10;
-                
-                ButtonEffekt(countButton);
+                platesCount++;
+                GameData.Gem++;
+                OpenPlates();
             }
         }
 
@@ -105,7 +118,8 @@ namespace KeyboredGames
                 GameData.SavePlayerSpec3 += 10;
                 AnimationController.Instance.animationSpeed += .5f;
                 
-                ButtonEffekt(speedButton);
+                
+                
             }
         }
 
@@ -126,7 +140,13 @@ namespace KeyboredGames
         {
             AudioManager.Instance.effectSource.volume = audioSlider.value * 10;
         } */
-
+        public void Vibrate()
+        {
+            if (vibrationState == VibrationState.on)
+            {
+                Handheld.Vibrate();
+            }
+        }
 
         public void Quit()
         {
@@ -134,10 +154,22 @@ namespace KeyboredGames
             Debug.Log("Application Quit");
         }
 
-        private void ButtonEffekt(Button button)
+        /*private void ButtonEffekt(Button button)
         {
             button.gameObject.transform.DOPunchScale(Vector3.one * .5f, 0.5f, 0, 0)
                 .OnComplete(() => button.gameObject.transform.localScale = Vector3.one * 0.805f);
+        }*/
+        public void OpenPlates()
+        {
+            foreach (GameObject plate in plates)
+            {
+                plate.SetActive(false);
+            }
+
+            for (int i = 0; i < platesCount; i++)
+            {
+                plates[i].SetActive(true);
+            }
         }
     }
 }

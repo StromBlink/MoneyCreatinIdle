@@ -5,14 +5,21 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
-public class EarnMoney : MonoBehaviour
+namespace KeyboredGames
 {
-    [SerializeField] RectTransform rectTransform;
-    [SerializeField] TMP_Text text;
-    private void OnEnable()
+
+
+    public class EarnMoney : MonoBehaviour
     {
-        rectTransform.DOMoveY(1, 2);
-        text.DOFade(0, 2).SetDelay(0.3f);
-        Destroy(gameObject, 2.1f);
+        [SerializeField] RectTransform rectTransform;
+        [SerializeField] TMP_Text text;
+
+        private void OnEnable()
+        {
+            text.SetText($"+" +MyUiManager.instance.incomeCoin.ToString());
+            rectTransform.DOMoveY(1, 2);
+            text.DOFade(0, 2).SetDelay(0.3f);
+            Destroy(gameObject, 2.1f);
+        }
     }
 }

@@ -77,6 +77,7 @@ namespace KeyboredGames
         public void PressAnimation(Transform press, float time, float delay, ParticleSystem pressSteam)
         {
             MyUiManager.instance.coin += MyUiManager.instance.incomeCoin;
+            GameData.Coin += MyUiManager.instance.incomeCoin;
             press.transform.DOMove(_target, time).OnStart(() => { conveyorSpeed = 0; })
             .OnComplete(() =>
             {

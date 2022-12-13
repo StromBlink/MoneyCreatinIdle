@@ -23,7 +23,11 @@ namespace KeyboredGames
             {
                 ID = other.GetInstanceID();
                 InBox(other);
-
+                if (MyUiManager.instance.vibrationState == VibrationState.on)
+                {
+                    Handheld.Vibrate();
+                }
+                MyUiManager.instance.Vibrate();
                 if (transforms_Coins.Count > 20)
                 {
                     GoBox();

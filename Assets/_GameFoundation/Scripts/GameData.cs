@@ -89,7 +89,7 @@ namespace KeyboredGames
 
         public static int Turn
         {
-            get { return PlayerPrefs.GetInt("Save_Turn", 0); }
+            get { return PlayerPrefs.GetInt("Save_Turn", 1); }
             set { PlayerPrefs.SetInt("Save_Turn", value); }
         }
 
@@ -142,7 +142,7 @@ namespace KeyboredGames
         {
             get
             {
-                return PlayerPrefs.GetInt("BgmCount", 0);
+                return PlayerPrefs.GetInt("BgmCount", 10);
             }
             set
             {
@@ -212,7 +212,7 @@ namespace KeyboredGames
 
         public static int Gem
         {
-            get { return PlayerPrefs.GetInt("Gem", 0); }
+            get { return PlayerPrefs.GetInt("Gem", 1); }
             set
             {
                 PlayerPrefs.SetInt("Gem", value);
@@ -237,19 +237,19 @@ namespace KeyboredGames
         public static int SavePlayerSpec1
         {
             //Speed
-            get { return PlayerPrefs.GetInt("SavePlayerSpec1", 400); }
+            get { return PlayerPrefs.GetInt("SavePlayerSpec1", 1); }
             set { PlayerPrefs.SetInt("SavePlayerSpec1", value); }
         }
         public static int SavePlayerSpec2
         {
             // Fire Range
-            get { return PlayerPrefs.GetInt("SavePlayerSpec2", 30); }
+            get { return PlayerPrefs.GetInt("SavePlayerSpec2", 10); }
             set { PlayerPrefs.SetInt("SavePlayerSpec2", value); }
         }
         // Damage
         public static int SavePlayerSpec3
         {
-            get { return PlayerPrefs.GetInt("SavePlayerSpec3", 2); }
+            get { return PlayerPrefs.GetInt("SavePlayerSpec3", 10); }
             set { PlayerPrefs.SetInt("SavePlayerSpec3", value); }
         }
         public static int SavePlayerSkin1 // Option
