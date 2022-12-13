@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2612275, g: 0.3391558, b: 0.58138007, a: 1}
+  m_IndirectSpecularColor: {r: 0.2612273, g: 0.33916318, b: 0.5813806, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 36.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3039,6 +3039,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 59063624957389749, guid: 8fe1eaea327f3b04ebdd3e2bde591595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59063624957389749, guid: 8fe1eaea327f3b04ebdd3e2bde591595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 59063624957389749, guid: 8fe1eaea327f3b04ebdd3e2bde591595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1506187143}
+    - target: {fileID: 59063624957389749, guid: 8fe1eaea327f3b04ebdd3e2bde591595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 59063624957389749, guid: 8fe1eaea327f3b04ebdd3e2bde591595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Income
+      objectReference: {fileID: 0}
+    - target: {fileID: 59063624957389749, guid: 8fe1eaea327f3b04ebdd3e2bde591595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: KeyboredGames.MyUiManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 59063624957389749, guid: 8fe1eaea327f3b04ebdd3e2bde591595, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 59063624957389751, guid: 8fe1eaea327f3b04ebdd3e2bde591595, type: 3}
       propertyPath: m_Name
       value: Income
@@ -4584,7 +4612,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 36.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4645,7 +4673,7 @@ GameObject:
   - component: {fileID: 1506187144}
   - component: {fileID: 1506187143}
   m_Layer: 0
-  m_Name: MyUImanager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4671,16 +4699,12 @@ MonoBehaviour:
   incomeButton: {fileID: 1928037279}
   countButton: {fileID: 2097177073}
   speedButton: {fileID: 1573462819}
-  settingButton: {fileID: 0}
-  audioSlider: {fileID: 0}
   settingPanel: {fileID: 0}
   incomeParticle: {fileID: 0}
   countParticle: {fileID: 0}
   speedParticle: {fileID: 0}
-  coin: 0
-  incomeCoin: 0
-  countCoin: 0
-  speedCoin: 0
+  coin: 1
+  incomeCoin: 1
 --- !u!4 &1506187144
 Transform:
   m_ObjectHideFlags: 0
@@ -5270,7 +5294,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
+  m_fontSize: 36.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

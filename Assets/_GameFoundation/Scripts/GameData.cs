@@ -61,6 +61,18 @@ namespace KeyboredGames
             get { return PlayerPrefs2.GetBool("ReviewSuccess"); }
             set { PlayerPrefs2.SetBool("ReviewSuccess", value); }
         }
+        
+        public static bool SoundStatues
+        {
+            get { return PlayerPrefs2.GetBool("SoundStatues"); }
+            set { PlayerPrefs2.SetBool("SoundStatues", value); }
+        }
+        
+        public static bool VibrationStatues
+        {
+            get { return PlayerPrefs2.GetBool("VibrationStatues"); }
+            set { PlayerPrefs2.SetBool("VibrationStatues", value); }
+        }
 
         public static int Save_Turn
         {

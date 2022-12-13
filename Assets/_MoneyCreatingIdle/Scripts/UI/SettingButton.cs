@@ -3,23 +3,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingButton : MonoBehaviour
+namespace KeyboredGames
 {
-    [SerializeField] AudioListener audioListener;
-    bool isSound = true;
-    bool isVib = true;
-    public void SoundController()
+    public class SettingButton : MonoBehaviour
     {
-        audioListener.enabled = !isSound; isSound = !isSound;
-    }
-    public void VibrationController()
-    {
-        if (isVib) MyUiManager.instance.vibrationState = VibrationState.on;
-        if (!isVib) MyUiManager.instance.vibrationState = VibrationState.of;
-        isSound = !isSound;
-    }
-    public void Golink(string link)
-    {
-        Application.OpenURL(link);
+        [SerializeField] AudioListener audioListener;
+        bool isSound = true;
+        bool isVib = true;
+
+        public void Start()
+        {
+            isSound = GameData.SoundStatues;
+            isVib = GameData.VibrationStatues;
+        }
+
+        public void SoundController()
+        {
+            audioListener.enabled = !isSound;
+            isSound = !isSound;
+        }
+
+        public void VibrationController()
+        {
+            if (isVib)
+            {
+                MyUiManager.instance.vibrationState = VibrationState.on;
+                GameData.VibrationStatues = true;
+            }
+
+            if (!isVib)
+            {
+                MyUiManager.instance.vibrationState = VibrationState.of;
+                GameData.VibrationStatues = false;
+            }
+            isSound = !isSound;
+        }
+
+        public void Golink(string link)
+        {
+            Application.OpenURL(link);
+        }
     }
 }

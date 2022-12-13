@@ -6,8 +6,6 @@ using UnityEngine;
 
 namespace KeyboredGames
 {
-
-
     public class UpgradeController : MonoBehaviour
     {
         private void Update()
@@ -15,13 +13,11 @@ namespace KeyboredGames
             if (Input.GetMouseButtonDown(0))
             {
                 Time.timeScale = 1.5f;
-            }
-            if (Input.GetMouseButtonUp(0))
-            {
-                MyUiManager.instance.coin++;
-                GameData.Coin++;
+                MyUiManager.instance.coin += MyUiManager.instance.incomeCoin;
+                GameData.Coin += MyUiManager.instance.incomeCoin;
                 Time.timeScale = 1;
             }
+            
         }
     }
 }

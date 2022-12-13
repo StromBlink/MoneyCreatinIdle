@@ -73,10 +73,10 @@ namespace KeyboredGames
             }
 
         }
-
-
+        
         public void PressAnimation(Transform press, float time, float delay, ParticleSystem pressSteam)
         {
+            MyUiManager.instance.coin += MyUiManager.instance.incomeCoin;
             press.transform.DOMove(_target, time).OnStart(() => { conveyorSpeed = 0; })
             .OnComplete(() =>
             {
@@ -94,11 +94,11 @@ namespace KeyboredGames
             GameObject b = Instantiate(earnCanva, earnCanvaPoint.position, new Quaternion(0.116089985f, -0.219164997f, 0.0236491859f, 0.96846813f));
 
         }
-        void OnDrawGizmos()
+        /*void OnDrawGizmos()
         {
             Gizmos.color = Color.blue;
             Vector3 target = new Vector3(press.position.x, press.position.y + 2f, press.position.z);
             Gizmos.DrawLine(press.position, target);
-        }
+        }*/
     }
 }
