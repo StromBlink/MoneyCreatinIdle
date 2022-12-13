@@ -15,7 +15,7 @@ namespace KeyboredGames
         private void Awake()
         {
             Instance = this;
-
+            knifeRotationSpeed = GameData.Save_Turn;
         }
 
         private void Update()
@@ -25,7 +25,7 @@ namespace KeyboredGames
 
         public void CutterAnimation(Transform knife)
         {
-            knifeRotationSpeed = (float)(1 / Math.Sqrt(AnimationController.Instance.animationSpeed)) * 80;
+
             _knifeRotation += Time.deltaTime * knifeRotationSpeed;
             knife.rotation = Quaternion.Euler(0, -180, _knifeRotation);
         }

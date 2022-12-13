@@ -27,7 +27,7 @@ namespace KeyboredGames
         public TMP_Text countButtonCoinText;
         public TMP_Text speedButtonCoinText;
 
-        [Header("Buttons")] 
+        [Header("Buttons")]
         public Button incomeButton;
         public Button countButton;
         public Button speedButton;
@@ -44,15 +44,15 @@ namespace KeyboredGames
         [Header("Coins")] public int coin;
         public int incomeCoin;
 
-        [Header("Values")] 
+        [Header("Values")]
         private int _incomeButtonValue;
         private int _countCoinValue;
         private int _speedCoinValue;
 
-        [Header("Plates")] 
+        [Header("Plates")]
         public GameObject[] plates;
         public int platesCount;
-        
+
 
         private void Awake()
         {
@@ -63,22 +63,27 @@ namespace KeyboredGames
             _countCoinValue = GameData.SavePlayerSpec2;
             _speedCoinValue = GameData.SavePlayerSpec3;
             platesCount = GameData.Gem;
-            
-            OpenPlates();
+
+
             /*  audioSlider.value = GameData.Slider; */
+        }
+        private void Start()
+        {
+            OpenPlates();
+
         }
 
         private void Update()
         {
             cointext.SetText("$" + coin.ToString());
-            incomeButtonCoinText.SetText("$" +_incomeButtonValue.ToString());
-            incomeValueButtonCoinText.SetText("$" +incomeCoin.ToString());
-            countButtonCoinText.SetText("$" +_countCoinValue.ToString());
-            speedButtonCoinText.SetText("$" +_speedCoinValue.ToString());
+            incomeButtonCoinText.SetText("$" + _incomeButtonValue.ToString());
+            incomeValueButtonCoinText.SetText("$" + incomeCoin.ToString());
+            countButtonCoinText.SetText("$" + _countCoinValue.ToString());
+            speedButtonCoinText.SetText("$" + _speedCoinValue.ToString());
             /*  GameData.Slider = audioSlider.value; */
-            
-            
-            
+
+
+
         }
 
         public void Income()
@@ -87,8 +92,8 @@ namespace KeyboredGames
             {
                 coin -= _incomeButtonValue;
                 GameData.Coin -= _incomeButtonValue;
-                _incomeButtonValue += 10;
-                GameData.BgmCount += 10;
+                _incomeButtonValue += 100;
+                GameData.BgmCount += 100;
                 incomeCoin++;
                 GameData.SavePlayerSpec1++;
             }
@@ -100,8 +105,8 @@ namespace KeyboredGames
             {
                 coin -= _countCoinValue;
                 GameData.Coin -= _countCoinValue;
-                _countCoinValue += 10;
-                GameData.SavePlayerSpec2 += 10;
+                _countCoinValue += 100;
+                GameData.SavePlayerSpec2 += 100;
                 platesCount++;
                 GameData.Gem++;
                 OpenPlates();
@@ -114,12 +119,12 @@ namespace KeyboredGames
             {
                 coin -= _speedCoinValue;
                 GameData.Coin -= _speedCoinValue;
-                _speedCoinValue += 10;
-                GameData.SavePlayerSpec3 += 10;
-                AnimationController.Instance.animationSpeed += .5f;
-                
-                
-                
+                _speedCoinValue += 100;
+                GameData.SavePlayerSpec3 += 100;
+                AnimationController.Instance.animationSpeed += .2f;
+
+
+
             }
         }
 
@@ -161,6 +166,12 @@ namespace KeyboredGames
         }*/
         public void OpenPlates()
         {
+            if (Knife.Instance.knifeRotationSpeed >= 50)
+            {
+                Knife.Instance.knifeRotationSpeed -= 1;
+                GameData.Save_Turn--;
+            }
+
             foreach (GameObject plate in plates)
             {
                 plate.SetActive(false);
@@ -169,7 +180,13 @@ namespace KeyboredGames
             for (int i = 0; i < platesCount; i++)
             {
                 plates[i].SetActive(true);
+
             }
+        }
+        public void InstateEarnCanva(GameObject earnCanva, Vector3 earnCanvaPoint_position)
+        {
+            GameObject b = Instantiate(earnCanva, earnCanvaPoint_position, new Quaternion(0.116089985f, -0.219164997f, 0.0236491859f, 0.96846813f));
+
         }
     }
 }

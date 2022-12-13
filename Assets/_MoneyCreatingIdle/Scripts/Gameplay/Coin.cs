@@ -52,9 +52,15 @@ namespace KeyboredGames
 
         void Update()
         {
-            if (isConveyorSwtich && state_WichDirection == State_WichDirection.Right) { pressMachine = pressMachine2; }
-            if (isConveyorSwtich && state_WichDirection == State_WichDirection.Left) { pressMachine_level2 = pressMachine2_level2; }
-            animator.speed = pressMachine.conveyorSpeed;
+            if (isConveyorSwtich && state_WichDirection == State_WichDirection.Left) pressMachine = pressMachine2;
+            if (state_WichDirection == State_WichDirection.Right) animator.speed = pressMachine.conveyorSpeed;
+            if (isConveyorSwtich && state_WichDirection == State_WichDirection.Left)
+            {
+                pressMachine_level2 = pressMachine2_level2;
+
+            }
+            if (state_WichDirection == State_WichDirection.Left) animator.speed = pressMachine_level2.conveyorSpeed;
+
 
             if ((rgdbody.velocity).sqrMagnitude > 1f)
             {

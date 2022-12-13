@@ -9,7 +9,7 @@ namespace KeyboredGames
 {
     public class UpgradeController : MonoBehaviour
     {
-
+        [SerializeField] GameObject earnCanvas;
         [SerializeField] private ParticleSystem touchParticle;
         private Touch touch;
         private void Update()
@@ -30,6 +30,7 @@ namespace KeyboredGames
                     touchParticle.transform.position = Camera.main.ScreenToWorldPoint(tochPoint);
 
                     touchParticle.Play();
+                    MyUiManager.instance.InstateEarnCanva(earnCanvas, Camera.main.ScreenToWorldPoint(tochPoint));
                 }
 
                 if (touch.phase == TouchPhase.Ended)
@@ -38,5 +39,7 @@ namespace KeyboredGames
                 }
             }
         }
+
+
     }
 }

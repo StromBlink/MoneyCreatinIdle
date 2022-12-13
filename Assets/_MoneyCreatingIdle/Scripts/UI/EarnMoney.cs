@@ -7,8 +7,6 @@ using DG.Tweening;
 
 namespace KeyboredGames
 {
-
-
     public class EarnMoney : MonoBehaviour
     {
         [SerializeField] RectTransform rectTransform;
@@ -16,8 +14,8 @@ namespace KeyboredGames
 
         private void OnEnable()
         {
-            text.SetText($"+" +MyUiManager.instance.incomeCoin.ToString());
-            rectTransform.DOMoveY(1, 2);
+            text.SetText($"+" + MyUiManager.instance.incomeCoin.ToString());
+            rectTransform.DOMoveY(3, 2f);
             text.DOFade(0, 2).SetDelay(0.3f);
             Destroy(gameObject, 2.1f);
         }

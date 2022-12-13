@@ -38,8 +38,7 @@ namespace KeyboredGames
                 animator.SetTrigger("Kesildi");
 
                 animationspeed();
-
-                Instantiate(earnCanva, coinBasePoint.position, new Quaternion(0.116089985f, -0.219164997f, 0.0236491859f, 0.96846813f));
+                MyUiManager.instance.InstateEarnCanva(earnCanva, coinBasePoint.position);
                 MyUiManager.instance.Vibrate();
                 GameData.Coin += MyUiManager.instance.incomeCoin;
             }

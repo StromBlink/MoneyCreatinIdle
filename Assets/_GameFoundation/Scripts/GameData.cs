@@ -5,10 +5,10 @@ namespace KeyboredGames
 
     public class GameData
     {
-        
-        
-        
-        
+
+
+
+
         public static int BestScore
         {
             get { return PlayerPrefs.GetInt("BestScore", 0); }
@@ -61,13 +61,13 @@ namespace KeyboredGames
             get { return PlayerPrefs2.GetBool("ReviewSuccess"); }
             set { PlayerPrefs2.SetBool("ReviewSuccess", value); }
         }
-        
+
         public static bool SoundStatues
         {
             get { return PlayerPrefs2.GetBool("SoundStatues"); }
             set { PlayerPrefs2.SetBool("SoundStatues", value); }
         }
-        
+
         public static bool VibrationStatues
         {
             get { return PlayerPrefs2.GetBool("VibrationStatues"); }
@@ -76,7 +76,7 @@ namespace KeyboredGames
 
         public static int Save_Turn
         {
-            get { return PlayerPrefs.GetInt("Save_Turn", 0); }
+            get { return PlayerPrefs.GetInt("Save_Turn", 80); }
             set { PlayerPrefs.SetInt("Save_Turn", value); }
         }
 

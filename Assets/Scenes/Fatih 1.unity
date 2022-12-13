@@ -1668,6 +1668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97207746696a9b646adc5983af757617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  earnCanvas: {fileID: 1390269328048331229, guid: 755798a597b5acc4bbf8d6025b69b4ac, type: 3}
   touchParticle: {fileID: 1031197287}
 --- !u!4 &350422994
 Transform:
@@ -3419,6 +3420,10 @@ PrefabInstance:
       value: -1.001
       objectReference: {fileID: 0}
     - target: {fileID: 3079526468206816195, guid: 0074355c5890de14db5b50acf7f24547, type: 3}
+      propertyPath: pressSteam
+      value: 
+      objectReference: {fileID: 1434045544}
+    - target: {fileID: 3079526468206816195, guid: 0074355c5890de14db5b50acf7f24547, type: 3}
       propertyPath: stateWhichMhacine
       value: 1
       objectReference: {fileID: 0}
@@ -3728,7 +3733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 859633289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6405,6 +6410,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1268d98daf8cb484e8bec805cbfef18a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2063b0c096323ca4ea7193be7e409e36, type: 3}
+--- !u!198 &1434045544 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4841309001356992493, guid: 0074355c5890de14db5b50acf7f24547, type: 3}
+  m_PrefabInstance: {fileID: 800228231}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1437721292 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8385228043103846333, guid: 2063b0c096323ca4ea7193be7e409e36, type: 3}
@@ -9816,4 +9826,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knife: {fileID: 7658183248767937654}
-  knifeRotationSpeed: 100
+  knifeRotationSpeed: 80
