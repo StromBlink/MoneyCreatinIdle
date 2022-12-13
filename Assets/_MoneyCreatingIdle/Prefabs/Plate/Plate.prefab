@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8385228043103846322}
   - component: {fileID: 2287163288933141195}
   - component: {fileID: 5335113181904161789}
-  - component: {fileID: 7668052122405996411}
+  - component: {fileID: 5232195846387811641}
   m_Layer: 0
   m_Name: Plate
   m_TagString: Untagged
@@ -151,10 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beb0a2da5e21c248a6e8f8bc856dd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinFirstStateMaterial: {fileID: 2100000, guid: c8ebc5bf4633088499f056ec40bdf97c, type: 2}
-  coinSecondStateMaterial: {fileID: 2100000, guid: 97f28d0c2de3560428c70f4ad47ebcb6, type: 2}
-  firtMesh: {fileID: -7511558181221131132, guid: a8e05247bb35ef94097270e78c28642f, type: 3}
-  stampMesh: {fileID: -7511558181221131132, guid: 7c1ebee12da3afa4eba7f835fcefff02, type: 3}
   animator: {fileID: 8385228043103846322}
   coinBasePoint: {fileID: 6702215473119256232}
   invertory: {fileID: 0}
@@ -175,8 +171,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &7668052122405996411
-CapsuleCollider:
+--- !u!65 &5232195846387811641
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -185,7 +181,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.00000005960464, y: 0.39, z: -0.00000008940697}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.26, z: 1.0000002}
+  m_Center: {x: 0.00000005960464, y: 0.83, z: -0.00000008940697}

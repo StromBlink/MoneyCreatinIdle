@@ -9,13 +9,6 @@ namespace KeyboredGames
 {
     public class CoinController : MonoBehaviour
     {
-        [Header("Materials")]
-        [SerializeField] private Material coinFirstStateMaterial;
-        [SerializeField] private Material coinSecondStateMaterial;
-
-        [Header("Meshes")]
-        [SerializeField] private MeshRenderer firtMesh;
-        [SerializeField] private MeshRenderer stampMesh;
 
         [SerializeField] Animator animator;
         [Header("Transforms")]
@@ -37,8 +30,12 @@ namespace KeyboredGames
         {
             if (other.gameObject.CompareTag("Knife"))
             {
+
                 GetCoin();
                 animator.SetTrigger("Kesildi");
+
+                animationspeed();
+
                 Instantiate(earnCanva, coinBasePoint.position, new Quaternion(0.116089985f, -0.219164997f, 0.0236491859f, 0.96846813f));
                 MyUiManager.instance.Vibrate();
                 GameData.Coin += MyUiManager.instance.incomeCoin;
@@ -49,7 +46,18 @@ namespace KeyboredGames
         {
             if (other.gameObject.CompareTag("Knife"))
             {
+
                 AudioManager.Instance.CutClip();
+            }
+        }
+        void animationspeed()
+        {
+            int count = MyUiManager.instance.platesCount;
+            switch (count)
+            {
+                case 1: animator.speed = 1; break;
+                case 5: animator.speed = 0.7f; break;
+                case 14: animator.speed = 0.4f; break;
             }
         }
     }
