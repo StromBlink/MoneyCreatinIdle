@@ -14,11 +14,13 @@ namespace KeyboredGames
         [Header("Transforms")]
         [SerializeField]
         private Transform coinBasePoint;
+
         [SerializeField] Transform invertory;
         [Header("EarnCanva")]
         [SerializeField] GameObject earnCanva;
 
         private GameObject _coin;
+        static int sol;
         public void GetCoin()
         {
             _coin = PoolManager.Instance.GetPoolObject(0);
@@ -30,6 +32,7 @@ namespace KeyboredGames
         {
             if (other.gameObject.CompareTag("Knife"))
             {
+
 
                 GetCoin();
                 animator.SetTrigger("Kesildi");
