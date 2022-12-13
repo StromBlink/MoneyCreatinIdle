@@ -13,16 +13,18 @@ namespace KeyboredGames
         [SerializeField] private Material coinFirstStateMaterial;
         [SerializeField] private Material coinSecondStateMaterial;
 
-        [Header("Meshes")] 
+        [Header("Meshes")]
         [SerializeField] private MeshRenderer firtMesh;
         [SerializeField] private MeshRenderer stampMesh;
-        
+
         [SerializeField] Animator animator;
         [Header("Transforms")]
         [SerializeField]
         private Transform coinBasePoint;
         [SerializeField] Transform invertory;
-        
+        [Header("EarnCanva")]
+        [SerializeField] GameObject earnCanva;
+
         private GameObject _coin;
         public void GetCoin()
         {
@@ -37,6 +39,7 @@ namespace KeyboredGames
             {
                 GetCoin();
                 animator.SetTrigger("Kesildi");
+                Instantiate(earnCanva, coinBasePoint.position, new Quaternion(0.116089985f, -0.219164997f, 0.0236491859f, 0.96846813f));
             }
         }
 

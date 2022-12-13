@@ -5,36 +5,35 @@ using KeyboredGames;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-
+using UnityEngine.UI;
+public enum VibrationState { on, of };
 public class MyUiManager : MonoBehaviour
 {
     public static MyUiManager instance;
-    
-    [Header("Texts")] 
-    public TextMeshProUGUI cointext;
-    public TextMeshProUGUI incomeButtonCoinText;
-    public TextMeshProUGUI countButtonCoinText;
-    public TextMeshProUGUI speedButtonCoinText;
+    public VibrationState vibrationState;
+    [Header("Texts")]
+    public TMP_Text cointext;
+    public TMP_Text incomeButtonCoinText;
+    public TMP_Text countButtonCoinText;
+    public TMP_Text speedButtonCoinText;
 
-    [Header("Buttons")] 
+    [Header("Buttons")]
     public Button incomeButton;
     public Button countButton;
     public Button speedButton;
-    public Button settingButton;
 
-    [Header("Slider")] 
-    public Slider audioSlider;
+    /* [Header("Slider")]
+    public Slider audioSlider; */
 
-    [Header("Panels")] 
+    [Header("Panels")]
     public Image settingPanel;
 
-    [Header("Particles")] 
+    [Header("Particles")]
     public ParticleSystem incomeParticle;
     public ParticleSystem countParticle;
     public ParticleSystem speedParticle;
 
-    [Header("Coins")] 
+    [Header("Coins")]
     public int coin;
     public int incomeCoin;
     public int countCoin;
@@ -47,16 +46,16 @@ public class MyUiManager : MonoBehaviour
         incomeCoin = GameData.SavePlayerSpec1;
         countCoin = GameData.SavePlayerSpec2;
         speedCoin = GameData.SavePlayerSpec3;
-        audioSlider.value = GameData.Slider;
+        /*  audioSlider.value = GameData.Slider; */
     }
 
     private void Update()
     {
-        cointext.text = coin.ToString();
-        incomeButtonCoinText.text = incomeCoin.ToString();
-        countButtonCoinText.text = countCoin.ToString();
-        speedButtonCoinText.text = speedCoin.ToString();
-        GameData.Slider = audioSlider.value;
+        cointext.SetText(coin.ToString());
+        incomeButtonCoinText.SetText(incomeCoin.ToString());
+        countButtonCoinText.SetText(countCoin.ToString());
+        speedButtonCoinText.SetText(speedCoin.ToString());
+        /*  GameData.Slider = audioSlider.value; */
     }
 
     public void Income()
@@ -78,7 +77,7 @@ public class MyUiManager : MonoBehaviour
             GameData.Coin -= countCoin;
             countCoin++;
             GameData.SavePlayerSpec2++;
-            
+
         }
     }
 
@@ -97,24 +96,21 @@ public class MyUiManager : MonoBehaviour
     public void Settings()
     {
         Time.timeScale = 0;
-        settingPanel.SetEnabled(true);
+
+        settingPanel.enabled = true;
     }
 
     public void Resume()
     {
         Time.timeScale = 1;
-        settingPanel.SetEnabled(false);
+        settingPanel.enabled = false;
     }
 
-    public void Sound()
+    /* public void Sound()
     {
         AudioManager.Instance.effectSource.volume = audioSlider.value * 10;
-    }
+    } */
 
-    public void Mute()
-    {
-        AudioManager.Instance.effectSource.volume = 0;
-    }
 
     public void Quit()
     {

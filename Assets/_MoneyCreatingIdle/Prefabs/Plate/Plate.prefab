@@ -151,12 +151,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8beb0a2da5e21c248a6e8f8bc856dd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinFirstStateMaterial: {fileID: 0}
-  coinSecondStateMaterial: {fileID: 0}
-  coinThirdStadeMaterial: {fileID: 0}
+  coinFirstStateMaterial: {fileID: 2100000, guid: c8ebc5bf4633088499f056ec40bdf97c, type: 2}
+  coinSecondStateMaterial: {fileID: 2100000, guid: 97f28d0c2de3560428c70f4ad47ebcb6, type: 2}
+  firtMesh: {fileID: -7511558181221131132, guid: a8e05247bb35ef94097270e78c28642f, type: 3}
+  stampMesh: {fileID: -7511558181221131132, guid: 7c1ebee12da3afa4eba7f835fcefff02, type: 3}
   animator: {fileID: 8385228043103846322}
   coinBasePoint: {fileID: 6702215473119256232}
   invertory: {fileID: 0}
+  earnCanva: {fileID: 1390269328048331229, guid: d4782ba302e14854ab97e197072d2e1a, type: 3}
 --- !u!54 &5335113181904161789
 Rigidbody:
   m_ObjectHideFlags: 0

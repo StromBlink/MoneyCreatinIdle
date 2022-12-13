@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CoinMaterial
-  m_Shader: {fileID: 4800000, guid: 8302807d5c3d34f85a1cfdcde75e1871, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 273c40ad1b1424d05a8012f749574752, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -55,6 +56,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -80,9 +82,10 @@ Material:
     - _ZWrite: 1
     - __dummy__: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.7793213, b: 0.2117647, a: 1}
+    - _Color: {r: 0.83699995, g: 0.6531882, b: 0.17724703, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _HColor: {r: 1, g: 0.9989376, b: 0.7028302, a: 1}
     - _RimColor: {r: 0.9528302, g: 0.46293166, b: 0.46293166, a: 1}
-    - _SColor: {r: 0.754717, g: 0.5075252, b: 0.3737985, a: 1}
+    - _SColor: {r: 0.709, g: 0.55588263, b: 0.14978872, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
