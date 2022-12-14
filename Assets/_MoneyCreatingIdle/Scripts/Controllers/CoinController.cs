@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using KeyboredGames;
 using Unity.VisualScripting;
 using UnityEngine;
-using MoreMountains.NiceVibrations;
+
 
 namespace KeyboredGames
 {
@@ -18,7 +18,6 @@ namespace KeyboredGames
 
         [SerializeField] Transform invertory;
         [Header("EarnCanva")]
-        [SerializeField] GameObject earnCanva;
 
         private GameObject _coin;
         static int sol;
@@ -37,7 +36,7 @@ namespace KeyboredGames
                 animator.SetTrigger("Kesildi");
 
                 animationspeed();
-                MyUiManager.instance.InstateEarnCanva(earnCanva, coinBasePoint.position);
+                MyUiManager.instance.InstateEarnCanva(coinBasePoint.position);
 
                 GameData.Coin += MyUiManager.instance.incomeCoin;
             }
@@ -47,7 +46,7 @@ namespace KeyboredGames
         {
             if (other.gameObject.CompareTag("Knife"))
             {
-                MMVibrationManager.Haptic(HapticTypes.Selection);
+
                 AudioManager.Instance.CutClip();
             }
         }

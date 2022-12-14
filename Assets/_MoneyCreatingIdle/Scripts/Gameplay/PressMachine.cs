@@ -16,7 +16,6 @@ namespace KeyboredGames
         float _countDown = 0;
         [SerializeField] Transform press;
         [SerializeField] Transform earnCanvaPoint;
-        [SerializeField] GameObject earnCanva;
         [SerializeField] ParticleSystem pressSteam;
         public float conveyorSpeed;
         [SerializeField] private Animator conveyorAnimator;
@@ -81,7 +80,7 @@ namespace KeyboredGames
             press.transform.DOMove(_target, time).OnStart(() => { conveyorSpeed = 0; })
             .OnComplete(() =>
             {
-                MyUiManager.instance.InstateEarnCanva(earnCanva, earnCanvaPoint.position);
+                MyUiManager.instance.InstateEarnCanva(earnCanvaPoint.position);
                 pressSteam.Play();
                 press.transform.DOMove(_basePosition, time).SetDelay(delay).OnStart(() =>
                 {

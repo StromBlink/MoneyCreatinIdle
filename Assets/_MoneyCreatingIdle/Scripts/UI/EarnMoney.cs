@@ -15,9 +15,9 @@ namespace KeyboredGames
         private void OnEnable()
         {
             text.SetText($"+" + MyUiManager.instance.incomeCoin.ToString());
-            rectTransform.DOMoveY(3, 3f);
-            text.DOFade(0, 1);
-            Destroy(gameObject, 1.1f);
+            rectTransform.DOMoveY(3, 5f);
+            text.DOFade(1, 0.7f);
+            Destroy(gameObject, 0.8f);
         }
     }
 }

@@ -30,7 +30,8 @@ namespace KeyboredGames
                     touchParticle.transform.position = Camera.main.ScreenToWorldPoint(tochPoint);
 
                     touchParticle.Play();
-                    MyUiManager.instance.InstateEarnCanva(earnCanvas, Camera.main.ScreenToWorldPoint(tochPoint));
+                    GameObject gold = Instantiate(earnCanvas, Camera.main.ScreenToWorldPoint(tochPoint), Quaternion.identity);
+                    Destroy(gold, 0.8f);
                 }
                 if (touch.phase == TouchPhase.Moved)
                 {

@@ -54,8 +54,11 @@ namespace KeyboredGames
         public GameObject[] plates;
         public int platesCount;
 
-        [Header("UpgradeObject0")]
+        [Header("UpgradeObject")]
         public GameObject levelUpgradeGameObject;
+        [Header("EarnCanva")]
+        public GameObject earnCanva;
+        Quaternion EarnCanva = new Quaternion(0.116089985f, -0.219164997f, 0.0236491859f, 0.96846813f);
 
 
 
@@ -205,6 +208,7 @@ namespace KeyboredGames
                 knifeIndex = 1;
                 GameData.knifeIndex = 1;
                 CamAnim.Instance.CamAnimation();
+                EarnCanva = new Quaternion(0.239236355f, 0.0237375982f, 0.0100848768f, 0.970618844f);
             }
             else
             {
@@ -216,9 +220,9 @@ namespace KeyboredGames
             Knife.Instance.GetCircle(knifeIndex);
             if (knifeIndex >= 2) Knife.Instance.GetCircle(1);
         }
-        public void InstateEarnCanva(GameObject earnCanva, Vector3 earnCanvaPoint_position)
+        public void InstateEarnCanva(Vector3 earnCanvaPoint_position)
         {
-            GameObject b = Instantiate(earnCanva, earnCanvaPoint_position, new Quaternion(0.116089985f, -0.219164997f, 0.0236491859f, 0.96846813f));
+            GameObject b = Instantiate(earnCanva, earnCanvaPoint_position, EarnCanva);
 
         }
     }
