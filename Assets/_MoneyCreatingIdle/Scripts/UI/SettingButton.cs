@@ -10,7 +10,7 @@ namespace KeyboredGames
         [SerializeField] AudioListener audioListener;
         bool isSound = true;
         bool isVib = true;
-        
+
 
         public void Start()
         {
@@ -29,7 +29,8 @@ namespace KeyboredGames
             if (isVib)
             {
                 MyUiManager.instance.vibrationState = VibrationState.on;
-                GameData.VibrationStatues = true;
+                GameData.VibrationStatues = false;
+
             }
 
             if (!isVib)
@@ -37,7 +38,7 @@ namespace KeyboredGames
                 MyUiManager.instance.vibrationState = VibrationState.of;
                 GameData.VibrationStatues = false;
             }
-            isSound = !isSound;
+            isVib = !isVib;
         }
 
         public void Golink(string link)
