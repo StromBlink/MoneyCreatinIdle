@@ -56,9 +56,12 @@ namespace KeyboredGames
 
         [Header("UpgradeObject0")]
         public GameObject levelUpgradeGameObject;
+        
+        
 
         private void Awake()
         {
+            Time.timeScale = 2.5f;
             instance = this;
             coin = GameData.Coin;
             incomeCoin = GameData.SavePlayerSpec1;
@@ -73,6 +76,11 @@ namespace KeyboredGames
         private void Start()
         {
             OpenPlates();
+            if (platesCount > 5)
+            {
+                levelUpgradeGameObject.SetActive(true);
+                CamAnim.Instance.CamAnimation();
+            }
 
         }
 
@@ -86,7 +94,7 @@ namespace KeyboredGames
             /*  GameData.Slider = audioSlider.value; */
 
 
-
+            
         }
 
         public void Income()
@@ -95,8 +103,8 @@ namespace KeyboredGames
             {
                 coin -= _incomeButtonValue;
                 GameData.Coin -= _incomeButtonValue;
-                _incomeButtonValue += 100;
-                GameData.BgmCount += 100;
+                _incomeButtonValue += 110;
+                GameData.BgmCount += 110;
                 incomeCoin++;
                 GameData.SavePlayerSpec1++;
             }
@@ -108,8 +116,8 @@ namespace KeyboredGames
             {
                 coin -= _countCoinValue;
                 GameData.Coin -= _countCoinValue;
-                _countCoinValue += 100;
-                GameData.SavePlayerSpec2 += 100;
+                _countCoinValue += 110;
+                GameData.SavePlayerSpec2 += 110;
                 platesCount++;
                 GameData.Gem++;
                 OpenPlates();
@@ -122,8 +130,8 @@ namespace KeyboredGames
             {
                 coin -= _speedCoinValue;
                 GameData.Coin -= _speedCoinValue;
-                _speedCoinValue += 100;
-                GameData.SavePlayerSpec3 += 100;
+                _speedCoinValue += 110;
+                GameData.SavePlayerSpec3 += 110;
                 AnimationController.Instance.animationSpeed += .2f;
 
 
@@ -196,6 +204,7 @@ namespace KeyboredGames
                 levelUpgradeGameObject.SetActive(true);
                 knifeIndex = 1;
                 GameData.knifeIndex = 1;
+                CamAnim.Instance.CamAnimation();
             }
             else
             {
