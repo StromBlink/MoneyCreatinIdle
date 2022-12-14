@@ -43,7 +43,7 @@ namespace KeyboredGames
 
         [Header("Coins")] public int coin;
         public int incomeCoin;
-        public int knifeIndex = 1;
+        public static int knifeIndex;
 
         [Header("Values")]
         private int _incomeButtonValue;
@@ -66,7 +66,7 @@ namespace KeyboredGames
             _countCoinValue = GameData.SavePlayerSpec2;
             _speedCoinValue = GameData.SavePlayerSpec3;
             platesCount = GameData.Gem;
-
+            knifeIndex = GameData.knifeIndex;
 
             /*  audioSlider.value = GameData.Slider; */
         }
@@ -195,10 +195,12 @@ namespace KeyboredGames
             {
                 levelUpgradeGameObject.SetActive(true);
                 knifeIndex = 1;
+                GameData.knifeIndex = 1;
             }
             else
             {
                 knifeIndex = 2;
+                GameData.knifeIndex = 2;
             }
 
             Knife.Instance.GetKnife(knifeIndex);

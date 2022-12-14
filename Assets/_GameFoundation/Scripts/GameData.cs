@@ -252,6 +252,11 @@ namespace KeyboredGames
             get { return PlayerPrefs.GetInt("SavePlayerSpec3", 10); }
             set { PlayerPrefs.SetInt("SavePlayerSpec3", value); }
         }
+        public static int knifeIndex
+        {
+            get { return PlayerPrefs.GetInt(" knifeIndex", 0); }
+            set { PlayerPrefs.SetInt(" knifeIndex", value); }
+        }
         public static int SavePlayerSkin1 // Option
         {
             get { return PlayerPrefs.GetInt("SavePlayerSkin1", 0); }

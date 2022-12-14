@@ -26,7 +26,6 @@ namespace KeyboredGames
             _coin = PoolManager.Instance.GetPoolObject(0);
             _coin.transform.position = coinBasePoint.position;
             _coin.transform.SetParent(invertory);
-            if (MyUiManager.instance.knifeIndex <= 4) _coin.GetComponent<Coin>().state_WichDirection = State_WichDirection.Right;
         }
 
         private void OnTriggerExit(Collider other)

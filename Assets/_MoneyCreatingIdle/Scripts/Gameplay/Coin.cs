@@ -43,9 +43,10 @@ namespace KeyboredGames
         }
         Vector3 WhichFallingPoint()
         {
-            if (whichpoint % 2 == 0) { whichpoint++; state_WichDirection = State_WichDirection.Left; return leftPoint.position; }
-            if (whichpoint % 2 != 0) { whichpoint++; state_WichDirection = State_WichDirection.Right; return rightPoint.position; }
-            return Vector3.zero;
+            print(MyUiManager.knifeIndex);
+            if (whichpoint % 2 == 0 && MyUiManager.knifeIndex > 0) { whichpoint++; state_WichDirection = State_WichDirection.Left; return leftPoint.position; }
+            else /* if (whichpoint % 2 != 0 || MyUiManager.knifeIndex <= 4)  */{ whichpoint++; state_WichDirection = State_WichDirection.Right; return rightPoint.position; }
+
         }
 
         void Update()
