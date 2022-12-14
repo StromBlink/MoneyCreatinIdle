@@ -56,12 +56,12 @@ namespace KeyboredGames
 
         [Header("UpgradeObject0")]
         public GameObject levelUpgradeGameObject;
-        
-        
+
+
 
         private void Awake()
         {
-            Time.timeScale = 2.5f;
+
             instance = this;
             coin = GameData.Coin;
             incomeCoin = GameData.SavePlayerSpec1;
@@ -94,7 +94,7 @@ namespace KeyboredGames
             /*  GameData.Slider = audioSlider.value; */
 
 
-            
+
         }
 
         public void Income()
@@ -214,6 +214,7 @@ namespace KeyboredGames
 
             Knife.Instance.GetKnife(knifeIndex);
             Knife.Instance.GetCircle(knifeIndex);
+            if (knifeIndex >= 2) Knife.Instance.GetCircle(1);
         }
         public void InstateEarnCanva(GameObject earnCanva, Vector3 earnCanvaPoint_position)
         {

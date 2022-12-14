@@ -123,6 +123,81 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &28545886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28545887}
+  - component: {fileID: 28545889}
+  - component: {fileID: 28545888}
+  - component: {fileID: 28545890}
+  m_Layer: 0
+  m_Name: CoinCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28545887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28545886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.009, y: 0.107, z: 0}
+  m_LocalScale: {x: 0.32925627, y: 0.037834488, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2137531068}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &28545888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28545886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6ae7a23fd97144da6feddd625be139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &28545889
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28545886}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &28545890
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28545886}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &29072705
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4127358250979553041, guid: a4e34a86eb69d034aa2fe30ec63d10d5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 1.0548803
       objectReference: {fileID: 0}
     - target: {fileID: 4127358250979553041, guid: a4e34a86eb69d034aa2fe30ec63d10d5, type: 3}
       propertyPath: m_LocalScale.y
@@ -572,7 +647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4127358250979553041, guid: a4e34a86eb69d034aa2fe30ec63d10d5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 0.80000013
       objectReference: {fileID: 0}
     - target: {fileID: 4127358250979553041, guid: a4e34a86eb69d034aa2fe30ec63d10d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1398,7 +1473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97207746696a9b646adc5983af757617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  earnCanvas: {fileID: 1390269328048331229, guid: 755798a597b5acc4bbf8d6025b69b4ac, type: 3}
+  earnCanvas: {fileID: 100004, guid: a54aacd7a074dfa4d99087b5675c03f0, type: 3}
   touchParticle: {fileID: 1031197287}
 --- !u!4 &350422994
 Transform:
@@ -8574,6 +8649,7 @@ Transform:
   m_Children:
   - {fileID: 2035263798}
   - {fileID: 208893647}
+  - {fileID: 28545887}
   m_Father: {fileID: 1985263452}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8836,6 +8912,10 @@ PrefabInstance:
     - target: {fileID: 1749394396592291, guid: 4f9dd8662479fb0459489b7d2cb02eb1, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.11638923
+      objectReference: {fileID: 0}
+    - target: {fileID: 814561902350098969, guid: 4f9dd8662479fb0459489b7d2cb02eb1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3341852672705807457, guid: 4f9dd8662479fb0459489b7d2cb02eb1, type: 3}
       propertyPath: m_Name

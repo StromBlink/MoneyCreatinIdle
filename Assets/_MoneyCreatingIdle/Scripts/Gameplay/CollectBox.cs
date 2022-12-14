@@ -23,12 +23,7 @@ namespace KeyboredGames
             {
                 ID = other.GetInstanceID();
                 InBox(other);
-                if (MyUiManager.instance.vibrationState == VibrationState.on)
-                {
-                    Handheld.Vibrate();
-                }
-                MyUiManager.instance.Vibrate();
-                if (transforms_Coins.Count > 20)
+                if (transforms_Coins.Count >= 35 && transforms_Coins.Count < 36)
                 {
                     GoBox();
                 }
@@ -37,8 +32,7 @@ namespace KeyboredGames
         }
         void InBox(Collider other)
         {
-            other.GetComponent<Rigidbody>().useGravity = true;
-            other.GetComponent<Animator>().enabled = false;
+
             other.transform.SetParent(transform);
             transforms_Coins.Add(other.GetComponent<Transform>());
 

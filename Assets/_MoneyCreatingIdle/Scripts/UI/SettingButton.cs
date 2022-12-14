@@ -20,7 +20,7 @@ namespace KeyboredGames
 
         public void SoundController()
         {
-            audioListener.enabled = !isSound;
+            audioListener.enabled = isSound;
             isSound = !isSound;
         }
 

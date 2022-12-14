@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using KeyboredGames;
 using Unity.VisualScripting;
 using UnityEngine;
+using MoreMountains.NiceVibrations;
 
 namespace KeyboredGames
 {
@@ -32,14 +33,12 @@ namespace KeyboredGames
         {
             if (other.gameObject.CompareTag("Knife"))
             {
-
-
                 GetCoin();
                 animator.SetTrigger("Kesildi");
 
                 animationspeed();
                 MyUiManager.instance.InstateEarnCanva(earnCanva, coinBasePoint.position);
-                MyUiManager.instance.Vibrate();
+
                 GameData.Coin += MyUiManager.instance.incomeCoin;
             }
         }
@@ -48,7 +47,7 @@ namespace KeyboredGames
         {
             if (other.gameObject.CompareTag("Knife"))
             {
-
+                MMVibrationManager.Haptic(HapticTypes.Selection);
                 AudioManager.Instance.CutClip();
             }
         }

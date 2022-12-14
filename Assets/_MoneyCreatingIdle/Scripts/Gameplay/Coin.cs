@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+using MoreMountains.NiceVibrations;
 namespace KeyboredGames
 {
     public enum State_WichDirection { Left, Right }
@@ -25,6 +25,8 @@ namespace KeyboredGames
 
         void OnEnable()
         {
+            MMVibrationManager.Haptic(HapticTypes.Selection);
+            defaultMesh();
             animator.enabled = false;
             isConveyorSwtich = false;
 
@@ -47,6 +49,11 @@ namespace KeyboredGames
             if (whichpoint % 2 == 0 && MyUiManager.knifeIndex > 0) { whichpoint++; state_WichDirection = State_WichDirection.Left; return leftPoint.position; }
             else /* if (whichpoint % 2 != 0 || MyUiManager.knifeIndex <= 4)  */{ whichpoint++; state_WichDirection = State_WichDirection.Right; return rightPoint.position; }
 
+        }
+        void defaultMesh()
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(2).gameObject.SetActive(false);
         }
 
         void Update()
