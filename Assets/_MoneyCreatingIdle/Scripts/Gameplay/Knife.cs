@@ -9,9 +9,11 @@ namespace KeyboredGames
     public class Knife : MonoBehaviour
     {
         public static Knife Instance;
-        [SerializeField] Transform knife;
+        [SerializeField] Transform knifeMechanic;
         private float _knifeRotation;
         public float knifeRotationSpeed;
+        public GameObject[] knifes;
+
         private void Awake()
         {
             Instance = this;
@@ -20,7 +22,7 @@ namespace KeyboredGames
 
         private void Update()
         {
-            CutterAnimation(knife);
+            CutterAnimation(knifeMechanic);
         }
 
         public void CutterAnimation(Transform knife)
@@ -28,6 +30,15 @@ namespace KeyboredGames
 
             _knifeRotation += Time.deltaTime * knifeRotationSpeed;
             knife.rotation = Quaternion.Euler(0, -180, _knifeRotation);
+        }
+
+        public void GetKnife(int index)
+        {
+            foreach (GameObject knife in knifes)
+            {
+                knife.SetActive(false);
+            }
+            knifes[index].SetActive(true);
         }
     }
 }
