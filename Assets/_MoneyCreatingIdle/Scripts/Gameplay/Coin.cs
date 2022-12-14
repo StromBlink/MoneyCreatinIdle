@@ -6,11 +6,11 @@ using DG.Tweening;
 
 namespace KeyboredGames
 {
-    enum State_WichDirection { Left, Right }
+    public enum State_WichDirection { Left, Right }
 
     public class Coin : MonoBehaviour
     {
-        State_WichDirection state_WichDirection;
+        public State_WichDirection state_WichDirection;
         [SerializeField] Transform leftPoint;
         [SerializeField] Transform rightPoint;
         [SerializeField] bool isConveyorSwtich;
@@ -25,12 +25,10 @@ namespace KeyboredGames
 
         void OnEnable()
         {
-            Vector3 fallingPoint = WhichFallingPoint();
-
             animator.enabled = false;
             isConveyorSwtich = false;
 
-
+            Vector3 fallingPoint = WhichFallingPoint();
             transform.DOMove(fallingPoint, 0.5f).SetEase(Ease.Linear).OnComplete(() =>
             {
                 transform.DORotate(new Vector3(0, 0, 90), 0.3f);
@@ -52,13 +50,9 @@ namespace KeyboredGames
 
         void Update()
         {
-            if (isConveyorSwtich && state_WichDirection == State_WichDirection.Left) pressMachine = pressMachine2;
+            if (isConveyorSwtich && state_WichDirection == State_WichDirection.Right) pressMachine = pressMachine2;
             if (state_WichDirection == State_WichDirection.Right) animator.speed = pressMachine.conveyorSpeed;
-            if (isConveyorSwtich && state_WichDirection == State_WichDirection.Left)
-            {
-                pressMachine_level2 = pressMachine2_level2;
-
-            }
+            if (isConveyorSwtich && state_WichDirection == State_WichDirection.Left) pressMachine_level2 = pressMachine2_level2;
             if (state_WichDirection == State_WichDirection.Left) animator.speed = pressMachine_level2.conveyorSpeed;
 
 

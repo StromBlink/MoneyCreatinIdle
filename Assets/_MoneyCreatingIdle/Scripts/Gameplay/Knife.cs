@@ -13,6 +13,7 @@ namespace KeyboredGames
         private float _knifeRotation;
         public float knifeRotationSpeed;
         public GameObject[] knifes;
+        public GameObject[] circles;
 
         private void Awake()
         {
@@ -39,6 +40,10 @@ namespace KeyboredGames
                 knife.SetActive(false);
             }
             knifes[index].SetActive(true);
+        }
+        public void GetCircle(int index)
+        {
+            circles[index].SetActive(true);
         }
     }
 }

@@ -43,6 +43,7 @@ namespace KeyboredGames
 
         [Header("Coins")] public int coin;
         public int incomeCoin;
+        public int knifeIndex = 1;
 
         [Header("Values")]
         private int _incomeButtonValue;
@@ -53,7 +54,7 @@ namespace KeyboredGames
         public GameObject[] plates;
         public int platesCount;
 
-        [Header("UpgradeObject0")] 
+        [Header("UpgradeObject0")]
         public GameObject levelUpgradeGameObject;
 
         private void Awake()
@@ -168,7 +169,7 @@ namespace KeyboredGames
         }*/
         public void OpenPlates()
         {
-            int knifeIndex = 0;
+
             if (Knife.Instance.knifeRotationSpeed >= 50)
             {
                 Knife.Instance.knifeRotationSpeed -= 1;
@@ -185,12 +186,12 @@ namespace KeyboredGames
                 plates[i].SetActive(true);
 
             }
-            
-            if (platesCount < 3)
+
+            if (platesCount < 5)
             {
                 levelUpgradeGameObject.SetActive(false);
             }
-            else if(platesCount >= 3 && platesCount < 12)
+            else if (platesCount >= 5 && platesCount < 12)
             {
                 levelUpgradeGameObject.SetActive(true);
                 knifeIndex = 1;
@@ -199,8 +200,9 @@ namespace KeyboredGames
             {
                 knifeIndex = 2;
             }
-            
+
             Knife.Instance.GetKnife(knifeIndex);
+            Knife.Instance.GetCircle(knifeIndex);
         }
         public void InstateEarnCanva(GameObject earnCanva, Vector3 earnCanvaPoint_position)
         {
