@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Fatih 1.unity
+    guid: 807f82a85cbceef478102ae089e8f87e
   m_configObjects: {}

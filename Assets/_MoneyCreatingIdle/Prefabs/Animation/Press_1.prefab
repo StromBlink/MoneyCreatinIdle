@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c85f723b31d434c989351affa18237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateWhichMhacine: 0
   press: {fileID: 7628245082338196580}
   earnCanvaPoint: {fileID: 7455683305035769276}
-  earnCanva: {fileID: 1390269328048331229, guid: d4782ba302e14854ab97e197072d2e1a, type: 3}
   pressSteam: {fileID: 4841309001356992493}
   conveyorSpeed: 0
   conveyorAnimator: {fileID: 7935708022230875686}
@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ' Hydraulic'
       objectReference: {fileID: 0}
+    - target: {fileID: 7113881471888528766, guid: 889b59089ebbe6c4ab3f57551a930958, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 48e5afd1fba53644a9ed1bceaf2944c1, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 889b59089ebbe6c4ab3f57551a930958, type: 3}
 --- !u!4 &985681842549717062 stripped
@@ -725,6 +729,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.699
       objectReference: {fileID: 0}
+    - target: {fileID: 6039014106806233901, guid: 66254c45132ee764c93bbf5ecd870e61, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 48e5afd1fba53644a9ed1bceaf2944c1, type: 2}
+    - target: {fileID: 6234622605476463109, guid: 66254c45132ee764c93bbf5ecd870e61, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 48e5afd1fba53644a9ed1bceaf2944c1, type: 2}
     - target: {fileID: 7641365578270348059, guid: 66254c45132ee764c93bbf5ecd870e61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -776,7 +788,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &7935708022230875686
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -793,7 +805,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &7935708022230875681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1441861316733339645, guid: 66254c45132ee764c93bbf5ecd870e61, type: 3}
