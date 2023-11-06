@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using KeyboredGames;
 using UnityEngine;
 
-namespace KeyboredGames
+namespace _MoneyCreatingIdle.Scripts.UI
 {
     public class SettingButton : MonoBehaviour
     {

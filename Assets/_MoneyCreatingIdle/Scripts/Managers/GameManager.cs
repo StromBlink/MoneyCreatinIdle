@@ -25,7 +25,6 @@ namespace KeyboredGames
         {
             // Initialize CLIK Plugin
             TTPCore.Setup();
-
             // Your code here
             Instance = this;
         }
